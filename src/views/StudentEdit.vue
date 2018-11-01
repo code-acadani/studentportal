@@ -90,7 +90,7 @@ export default {
         this.onlineResumeUrl = response.data.online_resume_url;
         this.githubUrl = response.data.github_url;
         this.photo = response.data.photo;
-      });
+      });    
   },
   methods: {
     submit: function() {
