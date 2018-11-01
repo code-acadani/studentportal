@@ -1,28 +1,29 @@
 <template>
   <div class="student-show">
-
+    <!-- student information -->
     <h1>{{ student.first_name }} {{student.last_name}}</h1>
     <img :src="student.photo">
     <div>
       <h2>Email: {{student.name}}</h2>
       <h2>Phone Number: {{student.phone_number}}</h2> 
       <h2>Bio: {{student.short_bio}}</h2>
-      <a>LinkedIn: href="{{student.linkedIn_url}}"</a> |
-      <a>Twitter: href="{{student.twitter_handle}}"</a> |
-      <a>Blog: :href="{{student.personal_blog_website_url}}"</a> |
-      <a>Resume: :href{{student.online_resume_url}}</a> |
-      <a>Github: :href="{{student.github_url}}"</a>
+      <a :href="student.linkedIn_url"> LinkedIn </a> |
+      <a :href="student.twitter_handle">Twitter </a> |
+      <a :href="student.personal_blog_website_url"> {{student.first_name}}'s Blog </a> |
+      <a :href="student.online_resume_url">Resume </a> |
+      <a :href="student.github_url">Github </a>
     </div>
+    <!-- end student information -->
 
-
-
-    <!-- <h1>{{ message }}</h1>
-    <div>
+    <!-- capstone information -->
+    <h1>{{ message }}</h1>
+    <div v-for="capestone in capestones">
       <h2>Name: {{capstone.name}}</h2>
       <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
       <a :href="capstone.url">Capstone Projects</a>
-    </div> -->
+    </div>
+    <!-- end capstone information -->
   </div>
 </template>
 
@@ -36,7 +37,7 @@
       return {
         message: "Capstones",
         student: {},
-        capstones: {}
+        capstones: []
       };
     },
     created: function() {
