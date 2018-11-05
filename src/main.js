@@ -12,6 +12,6 @@ if (jwt) {
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app');
+	router,
+	render: h => h(App)
+}).$mount("#app");
