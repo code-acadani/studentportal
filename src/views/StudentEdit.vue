@@ -51,6 +51,8 @@
       </div>
       <input type="submit" value="Submit">
     </form>
+    <button v-on:click="deleteStudent(student)">Delete</button>
+
   </div>
 </template>
 
@@ -118,7 +120,16 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
-    }
+    },
+
+    deleteStudent: function(student) {
+      axios
+        .delete("http://localhost:3000/api/students/" + this.$route.params.id)
+        .then(response => {
+          delete axios.defaults.headers.common["Authorization"];
+          localStorage.removeItem("jwt");
+        });
+    },
   }
-};
+};  
 </script>
