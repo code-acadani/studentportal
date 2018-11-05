@@ -161,10 +161,8 @@ export default {
         this.errors = error.response.data.errors;
       });
     }
-
-    },
-
-    deleteStudent: function(student) {
+  },
+   deleteStudent: function(student) {
       axios
         .delete("http://localhost:3000/api/students/" + this.$route.params.id)
         .then(response => {
@@ -172,6 +170,5 @@ export default {
           localStorage.removeItem("jwt");
         });
     },
-  }
 };  
 </script>

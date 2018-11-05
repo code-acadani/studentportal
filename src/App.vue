@@ -1,14 +1,21 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link :to="'/students/' + isStudent()">View Profile</router-link> |
-      <router-link :to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link> |
-      <router-link to="/logout">Logout</router-link> |
-      <router-link to="/students/new">Add Student</router-link>
-      
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Resume</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active"><router-link to="/">Home</router-link><span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" ><router-link to="/login">Login</router-link></a>
+            <a class="nav-item nav-link" ><router-link :to="'/students/' + isStudent()">View Profile</router-link></a>
+            <a class="nav-item nav-link" ><router-link :to="'/students/' + isStudent() + '/edit'">Edit Resume</router-link></a>
+            <a class="nav-item nav-link"><router-link to="/logout">Logout</router-link></a>
+          </div>
+        </div>
+      </nav>
     </div>
     <router-view/>
   </div>
