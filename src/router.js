@@ -7,6 +7,7 @@ import StudentEdit from './views/StudentEdit.vue'
 import Logout from "./views/Logout.vue"
 
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -26,6 +27,7 @@ export default new Router({
     { path: "/logout", name: "logout", component: Logout },
     { path: '/students/:id', name: 'student-show', component: StudentShow },
     { path: '/students/:id/edit', name: 'student-edit', component: StudentEdit },
+    
 
   ]
 });
