@@ -4,8 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
-      <router-link to="/students/:id">StudentShow</router-link> |
-      <router-link to="/students/:id/edit">StudentEdit</router-link>
+      <router-link :to="'/students/' + isStudent()">View Profile</router-link> |
+      <router-link to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link>
+      <router-link to="/logout">Logout</router-link>
     </div>
     <router-view/>
   </div>
@@ -29,6 +30,23 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #2c3e50;
 }
 </style>
+
+<script>
+  
+  export default {
+    
+    methods: {
+      isStudent: function() {
+        var studentId = localStorage.getItem("student_id");
+        if (studentId) {
+          return studentId;
+        }
+        return false;
+      },
+    },
+    computed: {}
+  };
+</script>

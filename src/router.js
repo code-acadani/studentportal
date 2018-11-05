@@ -1,10 +1,11 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
-import Login from "./views/Login.vue";
-import StudentShow from "./views/StudentShow.vue";
-import StudentEdit from "./views/StudentEdit.vue";
-import CapstoneEdit from "./views/CapstoneEdit.vue";
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from './views/Home.vue'
+import Login from './views/Login.vue'
+import StudentShow from './views/StudentShow.vue'
+import StudentEdit from './views/StudentEdit.vue'
+import Logout from "./views/Logout.vue"
+
 
 Vue.use(Router);
 
@@ -20,17 +21,11 @@ export default new Router({
       component: () =>
         import(/* webpackChunkName: "about" */ "./views/About.vue")
     },
-    { path: "/login", name: "login", component: Login },
-    { path: "/students/:id", name: "student-show", component: StudentShow },
-    {
-      path: "/students/:id/edit",
-      name: "student-edit",
-      component: StudentEdit
-    },
-    {
-      path: "/capstones/:id/edit",
-      name: "capstone-edit",
-      component: CapstoneEdit
-    }
+
+    { path: '/login', name: 'login', component: Login },
+    { path: "/logout", name: "logout", component: Logout },
+    { path: '/students/:id', name: 'student-show', component: StudentShow },
+    { path: '/students/:id/edit', name: 'student-edit', component: StudentEdit },
+
   ]
 });
