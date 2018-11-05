@@ -17,7 +17,7 @@
 
     <!-- capstone information -->
     <h1>{{ message }}</h1>
-    <div v-for="capestone in student">
+    <div v-for="capestone in capstones">
       <h2>Name: {{capstone.name}}</h2>
       <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
@@ -36,11 +36,16 @@
     data: function() {
       return {
         message: "Capstones",
-        student: {}
+        student: {},
+        capstones: []
       };
     },
     created: function() {
       axios.get("http://localhost:3000/api/students/" + this.$route.params.id).then(response => {
+        this.student = response.data;
+      });
+
+      axios.get("http://localhost:3000/api/capstones").then(response => {
         this.student = response.data;
       });
     },
