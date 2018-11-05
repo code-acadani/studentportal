@@ -5,7 +5,7 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link :to="'/students/' + isStudent()">View Profile</router-link> |
-      <router-link to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link>
+      <router-link :to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link> |
       <router-link to="/logout">Logout</router-link>
     </div>
     <router-view/>
@@ -14,7 +14,7 @@
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -35,18 +35,16 @@
 </style>
 
 <script>
-  
-  export default {
-    
-    methods: {
-      isStudent: function() {
-        var studentId = localStorage.getItem("student_id");
-        if (studentId) {
-          return studentId;
-        }
-        return false;
-      },
-    },
-    computed: {}
-  };
+export default {
+  methods: {
+    isStudent: function() {
+      var studentId = localStorage.getItem("student_id");
+      if (studentId) {
+        return studentId;
+      }
+      return false;
+    }
+  },
+  computed: {}
+};
 </script>

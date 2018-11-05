@@ -20,8 +20,11 @@
     <h1>{{ message }}</h1>
     <div v-for="capstone in student.capstones">
       <h2>Name: {{capstone.name}}</h2>
+      <router-link :to="'/capstones/' + capstone.id + '/edit'">
+      Edit Capstone</router-link>
       <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
+      <br>
       <a :href="capstone.url">Capstone Projects</a>
     </div>
     <!-- end capstone information -->
@@ -29,6 +32,10 @@
 </template>
 
 <style>
+img {
+  width: 50%;
+  height: 50%;
+}
 </style>
 
 <script>
