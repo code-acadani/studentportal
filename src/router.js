@@ -7,6 +7,7 @@ import StudentEdit from "./views/StudentEdit.vue";
 import CapstoneEdit from "./views/CapstoneEdit.vue";
 import Logout from "./views/Logout.vue";
 
+
 Vue.use(Router);
 
 export default new Router({
@@ -24,12 +25,8 @@ export default new Router({
 
     { path: "/login", name: "login", component: Login },
     { path: "/logout", name: "logout", component: Logout },
-    { path: "/students/:id", name: "student-show", component: StudentShow },
-    {
-      path: "/capstones/:id/edit",
-      name: "capstones-edit",
-      component: CapstoneEdit
-    },
-    { path: "/students/:id/edit", name: "student-edit", component: StudentEdit }
+    { path: '/students/:id', name: 'student-show', component: StudentShow },
+    { path: '/students/:id/edit', name: 'student-edit', component: StudentEdit },
+    
   ]
 });

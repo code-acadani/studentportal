@@ -51,6 +51,30 @@
       </div>
       <input type="submit" value="Submit">
     </form>
+
+
+    <form v-on:submit.prevent="submit()">
+      <h1>Add Capstone</h1>
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" v-model="capstoneName">
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" v-model="capstoneDescription">
+      </div>
+      <div class="form-group">
+        <label>Link to capsstone:</label>
+        <input type="text" v-model="capstoneUrl">
+      </div>
+      <div class="form-group">
+        <label>Capstone screenshot:</label>
+        <input type="text" v-model="capstoneScreenshot">
+      </div>
+      <input type="submit" value="Submit">
+    </form>
+    <button v-on:click="deleteStudent(student)">Delete Resume</button>
+
   </div>
 </template>
 
@@ -70,7 +94,11 @@ export default {
       onlineResumeUrl: "",
       githubUrl: "",
       photo: "",
-      errors: []
+      errors: [],
+      capstoneName: "",
+      capstoneDescription: "",
+      capstoneUrl: "",
+      capstoneScreenshot: ""
     };
   },
   created: function() {
@@ -118,7 +146,32 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
+
+
+      var capstoneParams = {
+        name: this.capstoneName,
+        description: this.capstoneDescription,
+        url: this.capstoneDescription,
+        screenshot: this.capstoneScreenshot,
+
+      };
+      axios.post("http://localhost:3000/api/capstones", capstoneParams).then(response => {
+        this.$router.push("/");
+      }).catch(error => {
+        this.errors = error.response.data.errors;
+      });
     }
+
+    },
+
+    deleteStudent: function(student) {
+      axios
+        .delete("http://localhost:3000/api/students/" + this.$route.params.id)
+        .then(response => {
+          delete axios.defaults.headers.common["Authorization"];
+          localStorage.removeItem("jwt");
+        });
+    },
   }
-};
+};  
 </script>
