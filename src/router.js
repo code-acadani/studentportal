@@ -5,7 +5,7 @@ import Login from './views/Login.vue'
 import StudentShow from './views/StudentShow.vue'
 import StudentEdit from './views/StudentEdit.vue'
 import Logout from "./views/Logout.vue"
-import StudentNew from "./views/StudentNew.vue"
+
 
 
 Vue.use(Router);
@@ -25,7 +25,6 @@ export default new Router({
 
     { path: '/login', name: 'login', component: Login },
     { path: "/logout", name: "logout", component: Logout },
-    { path: '/students/new', name: 'student-new', component: StudentNew },
     { path: '/students/:id', name: 'student-show', component: StudentShow },
     { path: '/students/:id/edit', name: 'student-edit', component: StudentEdit },
     
