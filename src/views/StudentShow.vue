@@ -4,7 +4,7 @@
     <h1>{{ student.first_name }} {{student.last_name}}</h1>
     <img :src="student.photo">
     <div>
-      <h2>Email: {{student.name}}</h2>
+      <h2>Email: {{student.email}}</h2>
       <h2>Phone Number: {{student.phone_number}}</h2> 
       <h2>Bio: {{student.short_bio}}</h2>
       <a :href="student.linkedIn_url"> LinkedIn </a> |
@@ -15,9 +15,10 @@
     </div>
     <!-- end student information -->
 
+
     <!-- capstone information -->
     <h1>{{ message }}</h1>
-    <div v-for="capstone in capstones">
+    <div v-for="capstone in student.capstones">
       <h2>Name: {{capstone.name}}</h2>
       <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
@@ -43,10 +44,6 @@
     created: function() {
       axios.get("http://localhost:3000/api/students/" + this.$route.params.id).then(response => {
         this.student = response.data;
-      });
-
-      axios.get("http://localhost:3000/api/capstones").then(response => {
-        this.capstones = response.data;
       });
     },
     methods: {},
