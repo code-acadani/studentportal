@@ -51,8 +51,7 @@
       </div>
       <input type="submit" value="Submit">
     </form>
-    <button v-on:click="deleteStudent(student)">Delete</button>
-
+    <button v-on:click="deleteStudent(student)">Delete Resume</button>
   </div>
 </template>
 
