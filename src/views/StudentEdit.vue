@@ -52,6 +52,7 @@
       <input type="submit" value="Submit">
     </form>
 
+
     <form v-on:submit.prevent="submit()">
       <h1>Add Capstone</h1>
       <div class="form-group">
@@ -72,6 +73,7 @@
       </div>
       <input type="submit" value="Submit">
     </form>
+    <button v-on:click="deleteStudent(student)">Delete Resume</button>
 
   </div>
 </template>
@@ -145,6 +147,7 @@ export default {
           this.errors = error.response.data.errors;
         });
 
+
       var capstoneParams = {
         name: this.capstoneName,
         description: this.capstoneDescription,
@@ -158,6 +161,17 @@ export default {
         this.errors = error.response.data.errors;
       });
     }
+
+    },
+
+    deleteStudent: function(student) {
+      axios
+        .delete("http://localhost:3000/api/students/" + this.$route.params.id)
+        .then(response => {
+          delete axios.defaults.headers.common["Authorization"];
+          localStorage.removeItem("jwt");
+        });
+    },
   }
-};
+};  
 </script>
