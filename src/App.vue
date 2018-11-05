@@ -5,8 +5,9 @@
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link :to="'/students/' + isStudent()">View Profile</router-link> |
-      <router-link to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link>
-      <router-link to="/logout">Logout</router-link>
+      <router-link to="'/students/' + isStudent() + '/edit'">Edit Profile</router-link> |
+      <router-link to="/logout">Logout</router-link> |
+      <router-link to="/students/new">Add Student</router-link>
     </div>
     <router-view/>
   </div>
