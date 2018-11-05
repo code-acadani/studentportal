@@ -27,6 +27,7 @@ export default new Router({
     { path: "/logout", name: "logout", component: Logout },
     { path: '/students/:id', name: 'student-show', component: StudentShow },
     { path: '/students/:id/edit', name: 'student-edit', component: StudentEdit },
+    { path: '/capstone/:id/edit', name: 'capstone-edit', component: CapstoneEdit },
     
   ]
 });
