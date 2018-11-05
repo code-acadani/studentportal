@@ -31,6 +31,7 @@ import axios from "axios";
 export default {
   data: function() {
     return {
+      capstone: {},
       name: "",
       description: "",
       url: "",
@@ -63,7 +64,7 @@ export default {
           params
         )
         .then(response => {
-          this.$router.push("/capstones");
+          this.$router.push("/");
         })
         .catch(error => {
           this.errors = error.response.data.errors;

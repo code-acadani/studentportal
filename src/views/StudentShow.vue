@@ -46,9 +46,12 @@
        <!-- capstone information -->
     <h1>{{ message }}</h1>
     <div v-for="capstone in student.capstones">
-      <h3>Name: {{capstone.name}}</h3>
-      <h3>Description: {{capstone.description}}</h3> 
+      <h2>Name: {{capstone.name}}</h2>
+      <router-link :to="'/capstones/' + capstone.id + '/edit'">
+      Edit Capstone</router-link>
+      <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
+      <br>
       <a :href="capstone.url">Capstone Projects</a>
     </div>
     <!-- end capstone information -->
