@@ -17,7 +17,7 @@
 
     <!-- capstone information -->
     <h1>{{ message }}</h1>
-    <div v-for="capestone in capstones">
+    <div v-for="capstone in capstones">
       <h2>Name: {{capstone.name}}</h2>
       <h2>Description: {{capstone.description}}</h2> 
       <img :src="capstone.screenshot">
@@ -46,7 +46,7 @@
       });
 
       axios.get("http://localhost:3000/api/capstones").then(response => {
-        this.student = response.data;
+        this.capstones = response.data;
       });
     },
     methods: {},
