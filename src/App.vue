@@ -4,8 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/login">Login</router-link> |
-      <router-link to="/students/:id">StudentShow</router-link> |
-      <router-link to="/students/:id/edit">StudentEdit</router-link>
+      <router-link :to="'/students/' + isStudent()">StudentShow</router-link> |
+      <router-link to="/students/id/edit">StudentEdit</router-link>
     </div>
     <router-view/>
   </div>
@@ -32,3 +32,20 @@
   color: #2c3e50;
 }
 </style>
+
+<script>
+  
+  export default {
+    
+    methods: {
+      isStudent: function() {
+        var studentId = localStorage.getItem("student_id");
+        if (studentId) {
+          return studentId;
+        }
+        return false;
+      },
+    },
+    computed: {}
+  };
+</script>
